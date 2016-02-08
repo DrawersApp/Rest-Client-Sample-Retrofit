@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Github Pages Template</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+
+    <!-- Combo with CSSNormalize, CSSGrids-Responsive, CSSForm, CSSTable, CSSList (v3.9.1) -->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?3.9.1/build/cssnormalize/cssnormalize-min.css&amp;3.9.1/build/cssgrids-responsive/cssgrids-responsive-min.css&amp;3.9.1/build/cssbutton/cssbutton-min.css&amp;gallery-2013.03.27-22-06/build/gallerycss-csslist/gallerycss-csslist-min.css&amp;gallery-2013.03.27-22-06/build/gallerycss-csstable/gallerycss-csstable-min.css&amp;gallery-2013.03.27-22-06/build/gallerycss-cssform/gallerycss-cssform-min.css">
+
+    <!-- Some custom styles to make things pretty. -->
+    <link rel="stylesheet" type="text/css" href="https://rawgithub.com/tilomitra/prettypages/gh-pages/ui.css">
+
+    <!-- RainbowJS Syntax Highlighting - Github Theme.
+         For more themes, go to https://github.com/ccampbell/rainbow/tree/master/themes -->
+    <link rel="stylesheet" type="text/css" href="https://rawgithub.com/ccampbell/rainbow/master/themes/github.css">
+
+    <link rel="stylesheet" type="text/css" href="./ui.css">
+
+    <!-- Modify header colors here to customize the look and feel of the site-->
+    <style>
+
+        .header {
+            background: rgb(53, 41, 116);
+         }
+            .header h1 {
+                color: white;
+            }
+             .header h2 {
+                 font-weight:300;
+                 margin:0;
+                 color: rgb(116, 130, 230);
+             }
+    </style>
+
+</head>
+
+<body class='yui3-skin-sam'>
+
+    <div id="headerMenu" class="yui3-menu yui3-menu-open yui3-menu-horizontal yui3-menu-fixed">
+        <span class="yui3-menu-heading">PrettyPages</span>
+        <ul>
+            <li class="yui3-menu-active"><a href="http://drawersapp.github.io/Retrofit/website/index.html">Documentation</a></li>
+            <li><a href="http://github.com/tilomitra/prettypages/">Sample Project.</a></li>
+            <li><a href="http://www.javadoc.io/doc/com.squareup.retrofit/retrofit/1.9.0">Javadocs</a></li>
+        </ul>
+    </div>
+    <div class="header yui3-u-1">
+
+        <h1 class="yui3-u-1">Retrofit</h1>
+        <h2 class="yui3-u">A type safe rest client</h2>
+
+    </div>
+    <div class="content">
+        <h2>A master explaining rest to his student?</h2>
+        <p><a href="https://en.wikipedia.org/wiki/Representational_state_transfer">Rest</a> is the basic building bock of entire web (literally!!). </p>
+
+        <p><b>Mater:</b>Think about when you're browsing around cricinfo.com looking for latest cricket scores. Imagine each of the matches as being nouns.
+          Now, if they were available in a representation
+          that a machine could understand, you could do a lot of neat things.</p>
+        <img class = "center fit" src="./cricinfo.png">
+        <p><b>Student:</b> Master, why can't a machine understand a normal web page?</p>
+
+        <p><b>Mater:</b>Because web pages are designed to be understood by people.
+          A machine doesn't care about layout and styling. Machines basically just need the data.
+          Ideally, every URL would have a human readable and a machine readable representation.
+          When a machine GETs the resource, it will ask for the machine readable one.
+          When a browser GETs a resource for a human, it will ask for the human readable one.</p>
+
+        <p><b>Student:</b> What is then machine understand?</p>
+        <p><b>Mater:</b>Ah, great question!!. Machine understands some kind of formatted text. One such format (and probably the most popular)
+          is json. As I said previously it is the most important building block of the entire web. It can be easily generated (by converting objects to string through a process
+          called serialization) and consumed by machines (by converting string into objects through deserialization).</p>
+        <img class = "center fit" src="./rest_cricinfo.png">
+        <p><small>Note the url - http://cricapp-1206.appspot.com/csa?id=949769+949771+949767+959189+914235
+          we will be using it later to read it from Java. The numbers with id are the match ids and will change
+        http://cricapp-1206.appspot.com/csa to get the latest match ids.</small></p>
+        <p><b>Student:</b> Ok, So I got it that it can be generated easily by machine? A final question, Who generates the format for browser?</p>
+        <p><b>Mater:</b> Well, machines are the one who generate the content for browser. They can generate that content but unable to consume it.
+        See, I told you how important is rest.</p>
+        <p><b>Student:</b> Thank you for enlightening me!! </p>
+
+        <a href="http://www.looah.com/source/view/2284" class="yui3-button primary-button">How I explained rest to my wife?</a>
+
+        <h2>Rest client(consumer) in Java using <a href="http://drawersapp.github.io/Retrofit/website/index.html">
+          retrofit</a></h2>
+
+        <p>To all Java Devs, Retrofit makes writing rest api easy like eating peanuts.</p>
+
+        <p>Install <a href="http://ubuntuhandbook.org/index.php/2014/06/install-latest-eclipse-ubuntu-14-04/">Eclipse</a>! And install <a href="http://www.codejava.net/ides/eclipse/installing-maven-plugin-for-existing-eclipse-ide">maven plugin</a>.</p>
+
+<p>Create an empty maven project and add the following dependency in pom.xml:</p>
+<pre><code data-language="javascript">
+  <dependency>
+    <groupId>com.squareup.retrofit</groupId>
+    <artifactId>retrofit</artifactId>
+    <version>1.9.0</version>
+  </dependency>
+</code></pre>
+
+<p>Find the model of incoming data. Let's put the json in previous section through a <a href="https://jsonformatter.curiousconcept.com/">formatter</a>.</p>
+<p>Raw data:</p>
+<img class = "center fit" src="./raw_data.png">
+<p>Formatted data:</p>
+<img class = "center fit" src="./formatted_data.png">
+
+
+        <p>We can see it list of objects with each object contains <code>de</code>, which is the detailed match score.  <code>id</code>, the match id, and <code>si</code> the match summary.</p>
+        <p>Retrofit turns your REST API into a Java interface. Let's recall the url - http://cricapp-1206.appspot.com/csa?id=949769+949771+949767+959189+914235 from previous section.
+        We will be dividing into - http://cricapp-1206.appspot.com (base url) shared by all api on this server + "/csa" - path + "?id=949769+949771+949767+959189+914235" - query.</p>
+        <pre><code data-language="java">
+          public interface MatchService {
+            @GET("/csa") // This is the path url for rest api. It generates - /csa?id=949769+949771+949767+959189+914235
+            List<Match> listmatches(@Query("id") String id);
+          }
+          public class Match {
+            // These are the exact object names from formatted data.
+            String de;
+            String id;
+            String si;
+          }
+        </code></pre>
+        <p>The RestAdapter class generates an implementation of the MatchService interface.</p>
+        <pre><code data-language="java">
+          RestAdapter restAdapter = new RestAdapter.Builder()
+          .setEndpoint("http://cricapp-1206.appspot.com") // This is the base url.
+          .build();
+
+          MatchService service = restAdapter.create(MatchService.class);
+        </pre></code>
+
+        <p> Now called the interface from main.</p>
+        <pre><code data-language="java">
+          public static void main(String[] args) {
+            // todo - Get the match service - keep it in singleton. Replace the string with latest ids from http://cricapp-1206.appspot.com/csa
+            List<Match> matches = service.listmatches("949769+949771+949767+959189+914235");
+            System.out.println(matches);
+          }
+        </pre></code>
+
+
+
+        <h2>Mission Accomplished!!</h2>
+        <p>
+          Congrats you have successfully written your first rest client. Go get yourself a beer!! You are a web ninja.
+        </p>
+
+        <!-- TYPEKIT -->
+        <script type="text/javascript" src="//use.typekit.net/ajf8ggy.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script src="https://rawgithub.com/ccampbell/rainbow/master/js/rainbow.min.js"></script>
+        <script src="https://rawgithub.com/ccampbell/rainbow/master/js/language/generic.js"></script>
+    </div>
+</body>
+</html>
